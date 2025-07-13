@@ -9,6 +9,7 @@
 
   imports = [
     ./neovim.nix
+    ./vscode.nix
   ];
 
   home.stateVersion = "25.05";
@@ -22,6 +23,7 @@
     raycast
     fzf
     nerd-fonts.jetbrains-mono
+    iterm2
   ];
 
   fonts.fontconfig.enable = true;
