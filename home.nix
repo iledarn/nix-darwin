@@ -10,6 +10,7 @@
     starship
     telegram-desktop
     git
+    brave
   ];
   programs.git = {
     enable = true;
