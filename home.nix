@@ -11,10 +11,12 @@
   home.packages = with pkgs; [
     zoxide
     telegram-desktop
+    git
     gh
     brave
     raycast
     fzf
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.tmux = {
