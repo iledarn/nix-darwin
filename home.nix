@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  targets.darwin.linkApps = {
+    enable = true;
+    directory = "Applications/Home Manager Apps";
+  };
   nixpkgs.config = {
     allowUnfree = true;
   };
