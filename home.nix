@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # Specify the version of Home Manager you are targeting.
   # Update this if you switch branches or after release upgrades.
   home.stateVersion = "25.05";
@@ -9,10 +8,10 @@
     zoxide
     tmux
     starship
-telegram-desktop
-git
+    telegram-desktop
+    git
   ];
-programs.git = {
+  programs.git = {
     enable = true;
     userName = "Ildar Nasyrov";
     userEmail = "iledarnp@gmail.com";
