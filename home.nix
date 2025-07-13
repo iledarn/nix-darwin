@@ -19,10 +19,13 @@
     nerd-fonts.jetbrains-mono
   ];
 
+  fonts.fontconfig.enable = true;
+
   programs.tmux = {
     enable = true;
     terminal = "tmux-256color";
     historyLimit = 100000;
+    shell = "${pkgs.zsh}/bin/zsh";
     plugins = with pkgs; [
       tmuxPlugins.yank
       tmuxPlugins.vim-tmux-navigator
@@ -35,12 +38,19 @@
       tmuxPlugins.fzf-tmux-url
     ];
     extraConfig = ''
-      setw -g mode-keys vi
-      unbind C-b
-      set -g prefix C-a
-      bind C-a send-prefix
-      bind-key C-a last-window
-      set-option -sa terminal-features ',foot:RGB'
+      # Work-around the tmux-sensible regression
+      set -gu default-command
+      set -g  default-shell "${pkgs.zsh}/bin/zsh"
+      set -g  default-command "${pkgs.zsh}/bin/zsh -l"
+      # Good defaults
+      set -g  default-terminal "screen-256color"
+      set -as terminal-overrides ',*:RGB'
+            setw -g mode-keys vi
+            unbind C-b
+            set -g prefix C-a
+            bind C-a send-prefix
+            bind-key C-a last-window
+            set-option -sa terminal-features ',foot:RGB'
     '';
   };
 
