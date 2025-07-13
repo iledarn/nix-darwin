@@ -1,9 +1,9 @@
 {pkgs, ...}: {
-  # Specify the version of Home Manager you are targeting.
-  # Update this if you switch branches or after release upgrades.
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
   home.stateVersion = "25.05";
 
-  # Packages that should be installed for your user. Feel free to extend.
   home.packages = with pkgs; [
     zoxide
     tmux
@@ -11,6 +11,7 @@
     telegram-desktop
     git
     brave
+    raycast
   ];
   programs.git = {
     enable = true;
