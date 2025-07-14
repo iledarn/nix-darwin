@@ -17,9 +17,4 @@
   users.users.${username} = {
     home = "/Users/${username}";
   };
-
-  home-manager.users.${username} = {pkgs, ...}: {
-    home.stateVersion = "25.05";
-    home.packages = with pkgs; [zoxide tmux starship];
-  };
 }
