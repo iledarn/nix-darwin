@@ -30,6 +30,9 @@
         home-manager.darwinModules.home-manager
         {
           home-manager.users.${username} = import ./home.nix;
+          home-manager.extraSpecialArgs = {
+            inherit username;
+          };
         }
       ];
       specialArgs = {inherit username;};

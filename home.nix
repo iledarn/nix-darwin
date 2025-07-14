@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, username, ...}: {
   targets.darwin.linkApps = {
     enable = true;
     directory = "Applications/Home Manager Apps";
@@ -6,6 +6,7 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
+  home.username = username;
 
   imports = [
     ./neovim.nix
@@ -69,6 +70,15 @@
       co = "checkout";
       st = "status";
       hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
+    };
+  };
+
+  programs.ssh.enable = true;
+  programs.ssh.matchBlocks = {
+    exness-github = {
+      hostname = "github.com";
+      user = "git";
+      identityFile = "/Users/${username}/.ssh/id_ed25519exness-github";
     };
   };
 
