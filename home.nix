@@ -25,6 +25,7 @@
     fzf
     nerd-fonts.jetbrains-mono
     iterm2
+    firefox
   ];
 
   fonts.fontconfig.enable = true;
