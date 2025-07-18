@@ -25,7 +25,7 @@
 
   home.packages = with pkgs; [
     zoxide
-    telegram-desktop
+    # telegram-desktop
     git
     gh
     brave
@@ -151,7 +151,7 @@
     
     -- Hotkey to open/activate Telegram with Command+Ctrl+T
     hs.hotkey.bind({"cmd", "ctrl"}, "T", function() 
-      hs.application.open("/Users/${username}/Applications/Home Manager Apps/Telegram.app")
+      hs.application.launchOrFocus("Telegram")
     end)
   '';
 }
