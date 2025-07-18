@@ -3,6 +3,7 @@
   username,
   ...
 }: {
+  system.primaryUser = username;
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
   };
@@ -13,6 +14,13 @@
   environment.systemPackages = with pkgs; [
     wget
   ];
+
+  homebrew = {
+    enable = true;
+    casks = [
+      "hammerspoon"
+    ];
+  };
 
   users.users.${username} = {
     home = "/Users/${username}";
