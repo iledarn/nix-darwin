@@ -1,4 +1,8 @@
-{pkgs, username, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   targets.darwin.linkApps = {
     enable = true;
     directory = "Applications/Home Manager Apps";
@@ -14,6 +18,10 @@
   ];
 
   home.stateVersion = "25.05";
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 
   home.packages = with pkgs; [
     zoxide
@@ -24,8 +32,12 @@
     raycast
     fzf
     nerd-fonts.jetbrains-mono
+    nerd-fonts.hack
     iterm2
+
     firefox
+    insomnia
+    postman
   ];
 
   fonts.fontconfig.enable = true;
@@ -97,4 +109,49 @@
     enableZshIntegration = true;
     nix-direnv.enable = true;
   };
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      font = {
+        normal.family = "JetBrainsMono Nerd Font";
+        size = 14;
+      };
+    };
+  };
+
+  # Hammerspoon app installed via Homebrew; we only manage the config.
+  home.file.".hammerspoon/init.lua".text = ''
+    -- Starter config: show a message when loaded
+    hs.alert.show("Hammerspoon loaded from Home Manager!")
+
+    -- Hotkey to open/activate Alacritty with Command+Ctrl+X
+    hs.hotkey.bind({"cmd", "ctrl"}, "X", function() 
+      hs.application.open("/Users/${username}/Applications/Home Manager Apps/Alacritty.app")
+    end)
+    
+    -- Hotkey to open/activate Safari with Command+Ctrl+S
+    hs.hotkey.bind({"cmd", "ctrl"}, "S", function() hs.application.launchOrFocus("Safari") end)
+    
+    -- Hotkey to open/activate Firefox with Command+Ctrl+F
+    hs.hotkey.bind({"cmd", "ctrl"}, "F", function() 
+      hs.application.open("/Users/${username}/Applications/Home Manager Apps/Firefox.app")
+    end)
+    
+    -- Hotkey to open/activate Brave with Command+Ctrl+D
+    hs.hotkey.bind({"cmd", "ctrl"}, "D", function() 
+      hs.application.open("/Users/${username}/Applications/Home Manager Apps/Brave Browser.app")
+    end)
+    
+    -- Hotkey to open/activate Google Chrome with Command+Ctrl+G
+    hs.hotkey.bind({"cmd", "ctrl"}, "G", function() hs.application.launchOrFocus("Google Chrome") end)
+    
+    -- Hotkey to open/activate Visual Studio Code with Command+Ctrl+C
+    hs.hotkey.bind({"cmd", "ctrl"}, "C", function() hs.application.launchOrFocus("Visual Studio Code") end)
+    
+    -- Hotkey to open/activate Telegram with Command+Ctrl+T
+    hs.hotkey.bind({"cmd", "ctrl"}, "T", function() 
+      hs.application.open("/Users/${username}/Applications/Home Manager Apps/Telegram.app")
+    end)
+  '';
 }
