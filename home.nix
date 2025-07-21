@@ -130,8 +130,8 @@
       hs.application.open("/Users/${username}/Applications/Home Manager Apps/Alacritty.app")
     end)
     
-    -- Hotkey to open/activate Safari with Command+Ctrl+S
-    hs.hotkey.bind({"cmd", "ctrl"}, "S", function() hs.application.launchOrFocus("Safari") end)
+    -- Hotkey to open/activate Slack with Command+Ctrl+S
+    hs.hotkey.bind({"cmd", "ctrl"}, "S", function() hs.application.launchOrFocus("Slack") end)
     
     -- Hotkey to open/activate Firefox with Command+Ctrl+F
     hs.hotkey.bind({"cmd", "ctrl"}, "F", function() 
