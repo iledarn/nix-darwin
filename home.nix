@@ -38,6 +38,8 @@
     firefox
     insomnia
     postman
+
+    maccy
   ];
 
   fonts.fontconfig.enable = true;
