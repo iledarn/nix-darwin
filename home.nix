@@ -155,5 +155,10 @@
     hs.hotkey.bind({"cmd", "ctrl"}, "T", function() 
       hs.application.launchOrFocus("Telegram")
     end)
+    
+    -- Hotkey to open/activate Postman with Command+Ctrl+P
+    hs.hotkey.bind({"cmd", "ctrl"}, "P", function() 
+      hs.application.open("/Users/${username}/Applications/Home Manager Apps/Postman.app")
+    end)
   '';
 }
