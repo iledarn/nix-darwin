@@ -160,5 +160,8 @@
     hs.hotkey.bind({"cmd", "ctrl"}, "P", function() 
       hs.application.open("/Users/${username}/Applications/Home Manager Apps/Postman.app")
     end)
+    
+    -- Hotkey to open/activate Strongbox with Command+Ctrl+K
+    hs.hotkey.bind({"cmd", "ctrl"}, "K", function() hs.application.launchOrFocus("Strongbox") end)
   '';
 }
