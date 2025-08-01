@@ -161,6 +161,16 @@
       hs.application.open("/Users/${username}/Applications/Home Manager Apps/Postman.app")
     end)
     
+    -- Hotkey to open/activate WhatsApp with Command+Ctrl+W
+    hs.hotkey.bind({"cmd", "ctrl"}, "W", function() 
+      hs.application.launchOrFocus("WhatsApp")
+    end)
+    
+    -- Hotkey to open/activate Facebook Messenger with Command+Ctrl+M
+    hs.hotkey.bind({"cmd", "ctrl"}, "M", function() 
+      hs.application.launchOrFocus("Messenger")
+    end)
+    
     -- Hotkey to open/activate Strongbox with Command+Ctrl+K
     hs.hotkey.bind({"cmd", "ctrl"}, "K", function() hs.application.launchOrFocus("Strongbox") end)
   '';
