@@ -140,9 +140,20 @@
       hs.application.open("/Users/${username}/Applications/Home Manager Apps/Firefox.app")
     end)
     
-    -- Hotkey to open/activate Brave with Command+Ctrl+D
+    -- Hotkey to open/activate Brave with Command+Ctrl+D (cycles through windows)
+    local braveWindowIndex = 1
     hs.hotkey.bind({"cmd", "ctrl"}, "D", function() 
-      hs.application.open("/Users/${username}/Applications/Home Manager Apps/Brave Browser.app")
+      local brave = hs.application.find("Brave Browser")
+      if brave then
+        local windows = brave:visibleWindows()
+        if #windows > 0 then
+          braveWindowIndex = (braveWindowIndex % #windows) + 1
+          windows[braveWindowIndex]:focus()
+        end
+      else
+        hs.application.open("/Users/${username}/Applications/Home Manager Apps/Brave Browser.app")
+        braveWindowIndex = 1
+      end
     end)
     
     -- Hotkey to open/activate Google Chrome with Command+Ctrl+G
