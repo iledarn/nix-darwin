@@ -156,8 +156,21 @@
       end
     end)
     
-    -- Hotkey to open/activate Google Chrome with Command+Ctrl+G
-    hs.hotkey.bind({"cmd", "ctrl"}, "G", function() hs.application.launchOrFocus("Google Chrome") end)
+    -- Hotkey to open/activate Google Chrome with Command+Ctrl+G (cycles through windows)
+    local chromeWindowIndex = 1
+    hs.hotkey.bind({"cmd", "ctrl"}, "G", function() 
+      local chrome = hs.application.find("Google Chrome")
+      if chrome then
+        local windows = chrome:visibleWindows()
+        if #windows > 0 then
+          chromeWindowIndex = (chromeWindowIndex % #windows) + 1
+          windows[chromeWindowIndex]:focus()
+        end
+      else
+        hs.application.launchOrFocus("Google Chrome")
+        chromeWindowIndex = 1
+      end
+    end)
     
     -- Hotkey to open/activate Visual Studio Code with Command+Ctrl+C
     hs.hotkey.bind({"cmd", "ctrl"}, "C", function() hs.application.launchOrFocus("Visual Studio Code") end)
