@@ -33,7 +33,6 @@
     fzf
     nerd-fonts.jetbrains-mono
     nerd-fonts.hack
-    iterm2
 
     firefox
     insomnia
