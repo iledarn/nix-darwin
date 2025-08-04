@@ -40,6 +40,7 @@
     postman
 
     maccy
+    rectangle
   ];
 
   fonts.fontconfig.enable = true;
