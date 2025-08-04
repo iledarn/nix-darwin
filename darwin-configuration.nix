@@ -19,6 +19,7 @@
     enable = true;
     casks = [
       "hammerspoon"
+      "amazon-q"
     ];
   };
 
