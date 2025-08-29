@@ -37,6 +37,7 @@
     firefox
     insomnia
     postman
+    zoom-us
 
     maccy
     rectangle
