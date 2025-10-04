@@ -20,6 +20,7 @@
     casks = [
       "hammerspoon"
       "amazon-q"
+      "spotify"
     ];
   };
 
