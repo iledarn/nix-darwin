@@ -128,6 +128,9 @@
     -- Starter config: show a message when loaded
     hs.alert.show("Hammerspoon loaded from Home Manager!")
 
+    -- Enable Spotlight support for application name searches
+    hs.application.enableSpotlightForNameSearches(true)
+
     -- Hotkey to open/activate Alacritty with Command+Ctrl+X
     hs.hotkey.bind({"cmd", "ctrl"}, "X", function() 
       hs.application.open("/Users/${username}/Applications/Home Manager Apps/Alacritty.app")
@@ -198,5 +201,10 @@
     
     -- Hotkey to open/activate Strongbox with Command+Ctrl+K
     hs.hotkey.bind({"cmd", "ctrl"}, "K", function() hs.application.launchOrFocus("Strongbox") end)
+    
+    -- Hotkey to open/activate ChatGPT Atlas with Command+Ctrl+A
+    hs.hotkey.bind({"cmd", "ctrl"}, "A", function() 
+      hs.application.open("/Applications/ChatGPT Atlas.app")
+    end)
   '';
 }
